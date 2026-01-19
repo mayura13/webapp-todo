@@ -1,21 +1,18 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   
   const handleInputChange = (evt) => setInputValue(evt.target.value);
   const handleSubmit = (evt) => {
+    evt.preventDefault();
     if(inputValue.trim() == "") return;
     const newTodo = {
       id: Date.now(),
-      text: "abcd",
+      text: inputValue,
       complete: false
-    }, {
-      id: Date.now() +1,
-      text: "1234",
-      complete: true
     }
     setTodos([...todos, newTodo]);
     setInputValue("");
@@ -26,17 +23,25 @@ function App() {
     setTodos(filtered);
   }
 
-  const toggleTodo = id => {
+  const toggleTodo = (id) => {
     const updated = todos.map(
       todo => todo.id === id?{...todo, complete: !todo.complete} :todo
     );
     setTodos(updated);
-  };
+  }; 
 
   return(
       <div className="App">
       <h1>Todo App</h1>
-      <div></div>
+     <form className="inputArea" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="할 일을 입력하세요"
+      />
+      <button type="submit">추가</button>
+     </form>
       <input value={inputValue} onChange={handleInputChange} />
       <button onClick={handleSubmit}>확인</button>
       <ul>
@@ -54,3 +59,4 @@ function App() {
     </div>
     );
   }
+export default App;
