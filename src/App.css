@@ -1,0 +1,76 @@
+.App {
+  max-width: 600px;
+  margin:50px auto;
+  padding: 20px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{ /*태그는 ; 안 넣어도 됨*/
+  text-align: center;
+  color: #999;
+}
+
+.inputArea{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"]{
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border:2px solid #dddddd;
+  border-radius: 10px;
+}
+
+input[type="text"]:focus{
+  border-color: #4caf50;
+}
+
+button{
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover{
+  background-color : #285d2b;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+li{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  padding:15px;
+  margin-bottom:10px;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  border:1px solid #dddddd;
+}
+
+li input[type="checkbox"]{
+  cursor: pointer;
+}
+
+li span{
+  flex: 1;
+  font-size: 16px;
+}
+li button{
+  background-color: #f44336;
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+li button:hover{
+  background-color: #aa1409;
+}
